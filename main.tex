@@ -11,6 +11,7 @@
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
+\graphicspath{ {./images/} }
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Google TPU}
@@ -38,6 +39,20 @@ Na era do desenvolvimento de sistemas baseados em Inteligência Artificial, se f
 \section{TensorFlow}
 
 \section{Cloud TPU v5p}
+
+Como discutido anteriormente, LLMs são os novos modelos mais explorados no mercado e na academia. Todavia, esses modelos utilizam dados de toda (ou quase toda) a internet, que cresce ainda mais exponencialmente. Todos os dias há milhões de novos dados sendo gerados. Dessa forma, é importante que o hardware acompanhe o crescimento na quantidade de dados disponíveis, de forma que seja possível possuir poder computacional suficiente para treinar modelos como esses.
+
+Com isso em vista, a evolução das TPUs deve ser rápida, portanto, em 2023, a Google apresentou, em 2023, a v5p, a TPU mais poderosa da empresa. Com esse lançamento, a Google prometeu a entrega de uma performance até $2.8$ vezes mais rápida, utilizada para alimentar ecossistemas internos da multinacional, como o Youtube, Android e Gmail.
+
+Essa TPU se diferencia das demais, pois é focada em desempenho possível, sem levar em consideração a facilidade operacional. Um grande diferencial é a forma como a TPU lida com operações em ponto flutuante. Por dados oficiais da Google, essa arquitetura traz $8960$ chips e três vezes mais memória HBM.
+
+\begin{figure}[h]
+\includegraphics[scale=0.5]{comparativo-tpus}
+\centering
+\caption{Comparativo entre TPUs Google para cargas de trabalho em IA e LLM}
+\end{figure}
+
+Mas no fim, o que significam esses valores? A Google promete que a nova TPU consegue escalar o tempo de treinamento, sendo até $4X$ mais rápida que TPUs mais baratas, como a $V4$, devido ao dobramento no tamanho de operações em ponto flutuante que são entregues.
 
 \section{Google Colab e distribuição}
 
