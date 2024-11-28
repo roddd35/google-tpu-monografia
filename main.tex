@@ -1,11 +1,7 @@
-\documentclass{article}
+\documentclass{report}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
-\usepackage[english]{babel}
+\usepackage[portuguese]{babel}
 
-% Set page size and margins
-% Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
@@ -13,32 +9,48 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{etoolbox}
+\patchcmd{\abstract}{\null\vfil}{}{}{}
+
+\usepackage{lipsum}
+
 
 \title{Google TPU}
 \author{Fernando Lima \\ Isabella Caselli \\ Rodrigo Michelassi}
+\date{2024}
 
 \begin{document}
 \maketitle
+\tableofcontents	% como colocar isso na mesma pagina que o titulo
 
+% --- ABSTRACT --- % 
 \begin{abstract}
 Na era do desenvolvimento de sistemas baseados em Inteligência Artificial, se faz necessário o uso de máquinas super potentes, capazes de processar dados e realizar operações matemáticas de maneira extremamente rápida. Modelos de Machine Learning podem levar horas, até mesmo dias, para serem treinados, devido principalmente a operações como produto interno entre matrizes e a enorme quantidade de dados que são usados, trazendo um prejuízo não apenas de tempo, mas também energético, ambiental e sobretudo lucrativo. Nesse artigo, iremos tratar brevemente sobre a utilização de Cloud TPUs, unidades de processamento de tensores do Google Cloud, que atuam na otimização do treinamento de modelos de aprendizado de máquina, e que se tornou indispensável na academia e na indústria, para todos estudiosos e profissionais da área.
 \end{abstract}
 
-\section{Introdução}
+% --- CHAPTER 1 --- % 
+\chapter{Introdução}
 
-\section{History}
+% --- CHAPTER 2 --- % 
+\chapter{História}
 
-\subsection{Tensores}
+% --- CHAPTER 3 --- % 
+\section{Tensores}
 
-\subsection{Modelos de Aprendizado de Máquina}
+% --- CHAPTER 4 --- % 
+\section{Modelos de Aprendizado de Máquina}
 
-\section{Arquitetura da TPU}
+% --- CHAPTER 5 --- % 
+\chapter{Arquitetura da TPU}
 
-\section{TPU vs GPU}
+% --- CHAPTER 6 --- % 
+\chapter{TPU vs GPU}
 
-\section{TensorFlow}
+% --- CHAPTER 7 --- % 
+\chapter{TensorFlow}
 
-\section{Cloud TPU v5p}
+% --- CHAPTER 8 --- % 
+\chapter{Cloud TPU v5p}
 
 Como discutido anteriormente, LLMs são os novos modelos mais explorados no mercado e na academia. Todavia, esses modelos utilizam dados de toda (ou quase toda) a internet, que cresce ainda mais exponencialmente. Todos os dias há milhões de novos dados sendo gerados. Dessa forma, é importante que o hardware acompanhe o crescimento na quantidade de dados disponíveis, de forma que seja possível possuir poder computacional suficiente para treinar modelos como esses.
 
@@ -54,7 +66,8 @@ Essa TPU se diferencia das demais, pois é focada em desempenho possível, sem l
 
 Mas no fim, o que significam esses valores? A Google promete que a nova TPU consegue escalar o tempo de treinamento, sendo até $4X$ mais rápida que TPUs mais baratas, como a $V4$, devido ao dobramento no tamanho de operações em ponto flutuante que são entregues.
 
-\section{Google Colab e distribuição}
+% --- CHAPTER 9 --- % 
+\chapter{Google Colab e distribuição}
 
 \bibliographystyle{alpha}
 \bibliography{sample}
