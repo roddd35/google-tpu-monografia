@@ -129,6 +129,37 @@ Note que a TPU está sendo utilizada sempre de maneira conjunta com a CPU, para 
 % --- CHAPTER 6 --- % 
 \chapter{TPU vs GPU}
 
+As GPUs (Graphics Processing Unit ou Unidade de Processamento Gráfico) são processadores projetados para acelerarem o processamento e a renderização de gráficos e imagens em um computador. Inicialmente, elas foram desenvolvidas para melhorar o desempenho gráfico e aplicações de visualização, mas com o tempo, elas se tornaram ferramentas poderosas também para tarefas de computação paralela. Devido a esta grande vantagem, computar paralelamente, elas tornaram-se vitais nas tarefas de aprendizado de máquina e simulações científicas.
+
+As TPUs e GPUs, cada uma possui vantagens distintas e são otimizadas para diferentes propósitos de computação. Embora ambas possuam alguns propósitos em comum, suas arquiteturas e otimizações levam a variações no desempenho, custo e eficiência dependendo da tarefa específica.
+
+\section{Arquitetura e Design}
+
+a GPU é uma unidade de processamento paralela com milhares de núcleos que podem executar tarefas simultaneamente. Sua arquitetura e design são altamente otimizados para executarem cálculos gráficos. Ela possui uma capacidade de lidar com enormes quantidades de dados e, devido à sua característica de paralelismo, torna-se adequada para operações matemáticas complexas.
+
+As TPUs não possuem tantos núcleos quanto as GPUs, porém, devido à sua arquitetura especializada para o processamento de tensores (operações matriciais), isto permite que elas superem as GPUs em determinadas tarefas. Aprendizagem profunda (Deep Learning), redes neurais, operações de convolução e outras técnicas de aprendizagem de máquina são os principais focos das TPUs.
+
+\section{Desempenho}
+
+As comparações entre TPUs e GPUs em tarefas semelhantes frequentemente revelam que as TPUs superam as GPUs principalmente em problemas nos quais a TPU foi especialmente arquitetada para resolver. Logo,  as TPUs superam as GPUs em tarefas específicas de aprendizagem profunda, como treinamento extensivo de redes neurais e modelos complexos de machine learning.
+
+Um exemplo seria o treinamento de um modelo ResNet-50 no conjunto de dados CIFAR-10 utilizando uma GPU NVIDIA Tesla V100 leva aproximadamente 40 minutos. Enquanto uma TPU v3 do Google Cloud, o mesmo treinamento leva apenas 15 minutos.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.7]{Desempenho}
+	\centering
+	\caption{Comparação de desempenhos entre TPU e GPU}
+\end{figure}
+
+
+\section{Custos}
+
+As GPUs possuem custos relativamente mais baratos do que as TPUs. Um dos principais empecilhos das TPUs é que elas não são vendidas individualmente, mas são disponíveis através de serviços de Cloud. Enquanto as GPUs são vendidas individualmente e atingem valores de dezenas de milhares de dólares.
+
+Ambas também podem ser obtidas por serviços de nuvem e a diferença no preço é chocante. Uma NVIDIA A100 pode custar cerca de 3 dólares a hora. Por outro lado, o Google Cloud TPU V4 custaria aproximadamente 8,00 por hora.
+
+Esta diferença desproporcional está atrelada à grande eficiência das TPUs para tarefas de machine learning em grande escala. Apesar das TPUs terem o custo por hora mais caro, tais tarefas demandam muitas horas de cálculos computacionais. Como existe uma vantagem maior no desempenho das TPUs em relação as GPUs nessas tarefas, o saldo final apresenta-se positivo para a utilização das mesmas.
+
 % --- CHAPTER 7 --- % 
 \chapter{TensorFlow}
 
