@@ -70,9 +70,9 @@ Essas operações são computacionalmente intensivas, especialmente em redes neu
 	\caption{Estrutura gráfica de uma Rede Neural}
 \end{figure}
 
-Com base nisso, temos um modelo matemático, que atualiza pesos e é capaz de responder perguntas, porém se ele nem sempre acerta, como eles são de fato utilizados? Vimos que modelos de Aprendizado de Máquina são baseados matemáticos e baseados em pesos. Existem diversas aplicações para esses modelos, e o trabalho de um engenheiro de Machine Learning é conseguir treinar um modelo, com dados o suficiente, de forma a minimizar o erro desse modelo, dessa forma aumentando sua acurácia e garantindo que o modelo tenha uma maior probabilidade de acertar as respostas, com base nos dados que são utilizados como entrada. Atualmente, esses modelos tem diversos usos na indústria, como no mercado financeiro, para predição de séries temporais para variações da bolsa de valores, na medicina para auxílio de profissionais no diagnóstico de doenças, no direito para análise textual de casos, na astronomia, como na recente descoberta da primeira imagem de um buraco negro. 
+Com base nisso, temos um modelo matemático, que atualiza pesos e consegue generalizar saídas para determinadas entradas, porém se ele nem sempre a saída é a esperada, como eles são de fato utilizados? Existem diversas aplicações para esses modelos, e o trabalho de um engenheiro de Machine Learning é treinar um modelo, com dados o suficiente, de forma a minimizar o erro (função de perda) desse modelo, dessa forma aumentando sua acurácia e garantindo que o modelo tenha uma maior probabilidade de acertar as respostas, com base nos dados que são utilizados como entrada. Esse é um clássico problema de otimização. Atualmente, esses modelos tem diversos usos na indústria, como no mercado financeiro, para predição de séries temporais para variações da bolsa de valores, na medicina para auxílio de profissionais no diagnóstico de doenças, no direito para análise textual de casos, na astronomia, como na recente descoberta da primeira imagem de um buraco negro. 
 
-Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como na academia, e deve continuar sendo explorado por diversos profissionais, de forma que é necessário acelerar o longo processo de treinamento de modelos, além de buscar soluções mais sustentáveis para que o conhecimento possa continuar se expandindo.
+Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como na academia, e deve continuar sendo explorado por diversos profissionais, de forma que é necessário acelerar o longo processo de treinamento de modelos, além de buscar soluções mais sustentáveis para que o desenvolvimento continue em expansão.
 
 \section{LLMs}
 
@@ -165,7 +165,7 @@ Um exemplo seria o treinamento de um modelo ResNet-50 no conjunto de dados CIFAR
 
 \section{Custos}
 
-As GPUs possuem custos relativamente mais baratos do que as TPUs. Um dos principais empecilhos das TPUs é que elas não são vendidas individualmente, mas são disponíveis através de serviços de Cloud. Enquanto as GPUs são vendidas individualmente e atingem valores de dezenas de milhares de dólares.
+As GPUs possuem custos relativamente mais baratos do que as TPUs. Um dos principais empecilhos das TPUs é que elas não são vendidas individualmente, mas são disponíveis através de serviços de Cloud, enquanto as GPUs são vendidas individualmente e atingem valores de dezenas de milhares de dólares.
 
 Ambas também podem ser obtidas por serviços de nuvem e a diferença no preço é chocante. Uma NVIDIA A100 pode custar cerca de 3 dólares a hora. Por outro lado, o Google Cloud TPU V4 custaria aproximadamente 8,00 por hora.
 
