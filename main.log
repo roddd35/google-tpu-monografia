@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.18)  11 DEC 2024 09:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.18)  11 DEC 2024 22:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -437,41 +437,78 @@ Cap\'{\i }tulo 2.
 [2
 
 ]
-<./images/neuralNetwork.png, id=73, 488.26317pt x 264.40244pt>
+<./images/neuralNetwork.png, id=93, 488.26317pt x 264.40244pt>
 File: ./images/neuralNetwork.png Graphic file (type png)
 <use ./images/neuralNetwork.png>
 Package pdftex.def Info: ./images/neuralNetwork.png  used on input line 68.
-(pdftex.def)             Requested size: 244.13098pt x 132.20088pt.
+(pdftex.def)             Requested size: 341.78188pt x 185.08043pt.
  [3 <./images/neuralNetwork.png>]
 Cap\'{\i }tulo 3.
+<./images/tpu-block-diagram.png, id=101, 497.86pt x 370.38374pt>
+File: ./images/tpu-block-diagram.png Graphic file (type png)
+<use ./images/tpu-block-diagram.png>
+Package pdftex.def Info: ./images/tpu-block-diagram.png  used on input line 84.
+
+(pdftex.def)             Requested size: 348.49962pt x 259.26685pt.
 [4
 
-]
+ <./images/tpu-block-diagram.png>]
+<./images/floor-plan.png, id=110, 474.77374pt x 364.36125pt>
+File: ./images/floor-plan.png Graphic file (type png)
+<use ./images/floor-plan.png>
+Package pdftex.def Info: ./images/floor-plan.png  used on input line 96.
+(pdftex.def)             Requested size: 332.33936pt x 255.05113pt.
+ [5 <./images/floor-plan.png>]
+<./images/circuit-board.png, id=118, 496.85625pt x 308.15125pt>
+File: ./images/circuit-board.png Graphic file (type png)
+<use ./images/circuit-board.png>
+Package pdftex.def Info: ./images/circuit-board.png  used on input line 124.
+(pdftex.def)             Requested size: 347.797pt x 215.70439pt.
+ [6 <./images/circuit-board.png>]
 Cap\'{\i }tulo 4.
-[5
+[7
 
 ]
 Cap\'{\i }tulo 5.
-[6
+[8
 
 ]
 Cap\'{\i }tulo 6.
-<./images/comparativo-tpus.png, id=94, 594.22pt x 385.44pt>
+<./images/comparativo-tpus.png, id=133, 594.22pt x 385.44pt>
 File: ./images/comparativo-tpus.png Graphic file (type png)
 <use ./images/comparativo-tpus.png>
-Package pdftex.def Info: ./images/comparativo-tpus.png  used on input line 97.
-(pdftex.def)             Requested size: 297.10927pt x 192.71953pt.
-[7
+Package pdftex.def Info: ./images/comparativo-tpus.png  used on input line 145.
+
+(pdftex.def)             Requested size: 415.95117pt x 269.80615pt.
+[9
 
  <./images/comparativo-tpus.png>]
 Cap\'{\i }tulo 7.
-(./main.bbl [8
+<./images/performance-watt.png, id=140, 854.19125pt x 485.815pt>
+File: ./images/performance-watt.png Graphic file (type png)
+<use ./images/performance-watt.png>
+Package pdftex.def Info: ./images/performance-watt.png  used on input line 160.
+
+(pdftex.def)             Requested size: 427.09459pt x 242.9069pt.
+<./images/watts-die.png, id=141, 810.02625pt x 553.06625pt>
+File: ./images/watts-die.png Graphic file (type png)
+<use ./images/watts-die.png>
+Package pdftex.def Info: ./images/watts-die.png  used on input line 170.
+(pdftex.def)             Requested size: 405.01213pt x 276.53244pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10
+
+ <./images/performance-watt.png>] [11 <./images/watts-die.png>]
+Cap\'{\i }tulo 8.
+(./main.bbl [12
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [9
+) [13
 
 ] (./main.aux)
  ***********
@@ -479,13 +516,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 817076B584B6792C90BEEF8A8A1393CB;1151.
+(rerunfilecheck)             Checksum: EC59C4F5F08777DE0F3030EA4BE0785C;1817.
  ) 
 Here is how much of TeX's memory you used:
- 11142 strings out of 474116
- 178577 string characters out of 5743681
- 1936187 words of memory out of 5000000
- 33345 multiletter control sequences out of 15000+600000
+ 11224 strings out of 474116
+ 180536 string characters out of 5743681
+ 1937187 words of memory out of 5000000
+ 33414 multiletter control sequences out of 15000+600000
  564357 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,7n,93p,1016b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -494,11 +531,12 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
 sr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on main.pdf (12 pages, 221330 bytes).
+/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
+ocal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (16 pages, 3655117 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 140 words of extra memory for PDF output out of 10000 (max. 10000000)
 

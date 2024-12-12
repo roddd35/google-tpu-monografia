@@ -25,7 +25,7 @@
 
 % --- ABSTRACT --- % 
 \begin{abstract}
-Na era do desenvolvimento de sistemas baseados em Inteligência Artificial, se faz necessário o uso de máquinas super potentes, capazes de processar dados e realizar operações matemáticas de maneira extremamente rápida. Modelos de Machine Learning podem levar horas, até mesmo dias, para serem treinados, devido principalmente a operações como produto interno entre matrizes e a enorme quantidade de dados que são usados, trazendo um prejuízo não apenas de tempo, mas também energético, ambiental e sobretudo lucrativo. Nesse artigo, iremos tratar brevemente sobre a utilização de Cloud TPUs, unidades de processamento de tensores do Google Cloud, que atuam na otimização do treinamento de modelos de aprendizado de máquina, e que se tornou indispensável na academia e na indústria, para todos estudiosos e profissionais da área.
+Na era do desenvolvimento de sistemas baseados em Inteligência Artificial e redes neurais profundas (Deep Learning), se faz necessário o uso de máquinas super potentes, capazes de processar dados e realizar operações matemáticas de maneira extremamente rápida. Modelos de Machine Learning podem levar horas, até mesmo dias, para serem treinados, devido principalmente a operações como produto interno entre matrizes e a enorme quantidade de dados que são usados, trazendo um prejuízo não apenas de tempo, mas também energético, ambiental e sobretudo lucrativo. Nesse artigo, iremos tratar brevemente sobre a utilização de Cloud TPUs, unidades de processamento de tensores do Google Cloud, que atuam na otimização do treinamento de modelos de aprendizado de máquina, e que se tornou indispensável na academia e na indústria, para todos estudiosos e profissionais da área.
 \end{abstract}
 
 % --- CHAPTER 1 --- % 
@@ -52,7 +52,7 @@ Atualmente, as TPUs são proprietárias, e no geral o acesso se limita a própri
 \section{Tensores}
 
 % --- CHAPTER 4 --- % 
-\section{Modelos de Aprendizado de Máquina}
+\section{Aprendizado de Máquina e Redes Neurais}
 
 Nos tempos de ChatGPT, IA's generativas, problemas éticos com uso de imagens e dados pessoais por grandes empresas, surge a necessidade de se entender como funcionam os modelos de Aprendizado de Máquina. 
 
@@ -62,10 +62,10 @@ De maneira resumida, modelos de Aprendizado de Máquina no geral consiste na mod
 
 Há problemas que são fáceis para humanos responderem, mas difíceis de serem automatizados. Por exemplo, dada uma imagem de um gato, um ser humano pode facilmente ver a imagem e dizer "essa é uma imagem de um gato". Porém, se existisse a necessidade de automatizar tal tarefa? Como podemos escrever um algoritmo que, dada uma imagem, de qualquer tamanho e padrão de cores, apenas utilizando ferramentas clássicas de algoritmos (loops, condicionais) e dizer se aquela imagem contém de fato, um gato? Nesse contexto, utilizar Machine Learning é uma boa ideia.
 
-Adicionalmente, os modelos mais modernos de Aprendizado de Máquina estão atrelados ao desenvolvimento de redes neurais. Esses modelos são treinados baseados em dois passos, conhecidos como forward e back-propagation. Redes Neurais são constituídas por nós, representando features de dados, e pesos atribuídos a cada uma dessas features, e a operação de Forward-Propagation consiste em realizar produtos vetoriais entre esses pesos com o valor dos nós. A operação de Back-Propagation deve retornar a rede neural, atualizando os pesos com base no erro calculado, novamente utilizando operações de produtos vetoriais. Note que essas operações são extremamente custosas, e Redes Neurais possuem milhares, até milhões de parâmetros, a depender do modelo, e é necessário acelerar esse processamento, com base em paralelismo e busca de algoritmos mais eficientes.
+Adicionalmente, os modelos mais modernos de Aprendizado de Máquina estão atrelados ao desenvolvimento de redes neurais. Esses modelos são treinados baseados em dois passos, conhecidos como forward e back-propagation. Redes Neurais são constituídas por nós, representando features de dados, e pesos atribuídos a cada uma dessas features, e a operação de Forward-Propagation consiste em realizar produtos vetoriais entre esses pesos com o valor dos nós (função não linear da soma ponderada dos dados de entrada). A operação de Back-Propagation deve retornar a rede neural, atualizando os pesos com base no erro calculado, novamente utilizando operações de produtos vetoriais. Note que essas operações são extremamente custosas, e Redes Neurais possuem milhares, até milhões de parâmetros, a depender do modelo, e é necessário acelerar esse processamento, com base em paralelismo e busca de algoritmos mais eficientes.
 
 \begin{figure}[h]
-	\includegraphics[scale=0.5]{neuralNetwork}
+	\includegraphics[scale=0.7]{neuralNetwork}
 	\centering
 	\caption{Estrutura gráfica de uma Rede Neural}
 \end{figure}
@@ -77,6 +77,54 @@ Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como
 
 % --- CHAPTER 5 --- % 
 \chapter{Arquitetura da TPU}
+
+As TPUs surgem como uma alternativa de arquitetura simples para o usuário, de forma que tenha uma interface de hardware mais amigável, ao mesmo tempo que consegue processar dados mais rapidamente, atingindo as demandas necessárias em $2015$ para processamento de redes neurais. Essa arquitetura foi desenhada para processar dados de maneira independente da CPU, e recebe instruções de processamento do servidor onde está conectado.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.7]{tpu-block-diagram}
+	\centering
+	\caption{Estrutura básica de uma TPU}
+\end{figure}
+
+Para entender melhor a arquitetura de uma TPU, leve em consideração seus pontos mais importantes: a entrada é feita no Weight FIFO, que é levada a principal unidade de processamento, a Matrix Multiply Unit. Essa unidade é responsável por explorar o produto matricial, e iremos explicar mais a fundo em breve. Por fim, a saída é deixada nos acumuladores, e a unidade de ativação performa funções não lineares na saída, para finalmente levar essa saída ao Buffer unificado.
+
+\section{Unidade de Multiplicação Matricial}
+
+Como dissemos, a unidade de multiplicação matricial é o coração da TPU. Essa unidade contém $256 \times 256$ MACs (endereço de controle de acesso de mídia) que conseguem processar operações de adição de multiplicação em inteiros (com ou sem sinal) de até 8 bits, gerando produtos de até 16 bits, armazenados temporariamente nos acumuladores de 32 bits. Esses acumuladores podem carregar até $4$MiB de dados. A unidade de processamento de matrizes pode computar até $256$ valores por ciclo de clock, e é capaz de realizar operações como produto matricial ou convolução. Vale lembrar que, nos primeiros anos do lançamento da TPU, essa unidade foi planejada justamente para acelerar operações de produto em matrizes densas, sem levar em consideração a esparsidade, que é uma medida útil para acelerar operações de matrizes.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.7]{floor-plan}
+	\centering
+	\caption{Divisão do uso do chip na TPU por unidade}
+\end{figure}
+
+Note que, a unidade de processamento de matrizes irá receber muitos dados de entrada, e ler dados da SRAM consome muito mais energia do que processamento aritmético, portanto essa unidade se aproveita de execução sistólica para economizar energia, reduzindo operações de leitura e escrita do Buffer unificado, dependendo de dados provindos de diversas direções alimentando um array em intervalos regulares.
+
+\section{Principais instruções}
+
+Como vimos, as instruções a serem executadas são enviadas de maneira externa para a TPU, através de PCIe (Peripheral Component Interconnect Express), o que pode ser relativamente lento e caminhar na direção oposta ao que é esperado. Nesse contexto, a fim de acelerar esse processo, a TPU utiliza da arquitetura CISC para definir instruções. A seguir, vemos algumas das principais instruções presentes na TPU:
+
+$\bullet$ Read\_Host\_Memory: lê dados da CPU para o Buffer Unificado da TPU
+
+$\bullet$ Read\_Weights: lê a entrada da unidade matricial
+
+$\bullet$ MatrixMultiply/Convolve: faz com que a unidade matricial performe uma operação de multiplicação ou convolução, e deposite a saída nos acumuladores. Tal operação matricial leva tempo $B \times 256$ da entrada, multiplica por uma constante $256 \times 256$ e produz uma saída de tamanho $B \times 256$, e leva $B$ ciclos de clock para ser concluída.
+
+$\bullet$ Activate: performa a função não linear de ativação no neurônio processado que está no acumulador, podendo ser, nativamente, ReLU, Sigmoid, até mesmo pooling para convoluções. Sua saída é levada para o Buffer unificado.
+
+$\bullet$ Write\_Host\_Memory: escreve os dados do Buffer unificado na CPU.
+
+Como podemos ver, essas principais instruções giram em torno do uso da unidade de processamento de matriz, além de trazer a aplicação de funções conhecidas de Machine Learning, como pooling e funções de ativação, para serem executadas a nível de hardware, acelerando ainda mais o processo. A filosofia geral da TPU é manter a unidade de matrizes sempre ocupada, e processar diversas instruções paralelamente, para evitar que a unidade de matrizes não tenha entrada assim que acabar uma operação.
+
+\section{Compatibilidade}
+
+Note que a TPU está sendo utilizada sempre de maneira conjunta com a CPU, para recebimento de dados a serem processados. Dessa forma, a pilha de software da TPU tinha como necessidade padrão ser compatível com softwares feitos para rodar na CPU e GPU. Para evitar problemas de compatibilidade, a aplicação de roda na TPU é feita utilizando TensorFlow e compilada em uma API que é capaz de rodar na CPU e GPU.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.7]{circuit-board}
+	\centering
+	\caption{Placa de circuito da TPU}
+\end{figure}
 
 % --- CHAPTER 6 --- % 
 \chapter{TPU vs GPU}
@@ -94,7 +142,7 @@ Com isso em vista, a evolução das TPUs deve ser rápida, portanto, em 2023, a 
 Essa TPU se diferencia das demais, pois é focada em desempenho possível, sem levar em consideração a facilidade operacional. Um grande diferencial é a forma como a TPU lida com operações em ponto flutuante. Por dados oficiais da Google, essa arquitetura traz $8960$ chips e três vezes mais memória HBM.
 
 \begin{figure}[h]
-\includegraphics[scale=0.5]{comparativo-tpus}
+\includegraphics[scale=0.7]{comparativo-tpus}
 \centering
 \caption{Comparativo entre TPUs Google para cargas de trabalho em IA e LLM}
 \end{figure}
@@ -102,7 +150,33 @@ Essa TPU se diferencia das demais, pois é focada em desempenho possível, sem l
 Mas no fim, o que significam esses valores? A Google promete que a nova TPU consegue escalar o tempo de treinamento, sendo até $4X$ mais rápida que TPUs mais baratas, como a $V4$, devido ao dobramento no tamanho de operações em ponto flutuante que são entregues.
 
 % --- CHAPTER 9 --- % 
-\chapter{Google Colab e distribuição}
+\chapter{Consumo de Energia}
+
+Atualmente, TPUs são encontradas com maior frequência em data centers, e são um produto extremamente utilizado não só pela Google, como também por empresas e usuários que dependem de seus serviços de nuvem.
+
+Para avaliar, primeiramente, a performance/watt da TPU, e comparar com outras arquiteturas como GPU, se utiliza as métricas "total" (que calcula a energia consumida pela TPU/GPU juntamente a CPU, quando calcula performance/watt) e "incremental" (que subtrai a energia consumida pela CPU). A figura abaixo ilustra bem os resultados obtidos pela Google, que mostram uma performance de $17$ a $34$ vezes melhor que a GPU no modelo total, e de $25$ a $29$ vezes melhor que a GPU no modelo incremental.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{performance-watt}
+	\centering
+	\caption{Performance/Watt para operações de médias geométricas e ponderadas (GM e WM, respectivamente)}
+\end{figure}
+
+Tendo esses consumos em vista, uma das medidas adequadas para se medir juntamente ao surgimento de uma nova arquitetura é o TDP (Thermal Design Power), que afeta diretamente o custo de energia gasto, tendo em vista que é necessário que a unidade receba energia e resfriamento suficientes. Tendo em vista que servidores não estão em funcionamento durante $100\%$ do tempo, é interessante que a energia consumida por essas máquinas seja proporcional ao seu tempo de uso.
+
+A fim de medir tal consumo e avaliar a validade energética do uso de TPUs em detrimento de GPUs, a figura a seguir compara a energia gasta pelo servidor dividido pelo número de dias, variando o workload para processar CNN0, utilizando o mesmo batch para todos os testes.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{watts-die}
+	\centering
+	\caption{Performance/Watt para operações de médias geométricas e ponderadas (GM e WM, respectivamente)}
+\end{figure}
+
+
+Pelos resultados obtidos, vemos que as TPUs conseguem consumir, no geral, menos energia que as GPUs, porém há um trade-off grande, pois a quantidade de energia consumida, mesmo com pouca operação na máquina, ainda é muito similar ao consumo com a máquina funcionando em $100\%$. Ou seja, quando a TPU e GPU estão totalmente carregadas, o servidor de CPU gasta $52\%$ da energia da GPU e $69\%$ da energia da TPU. Nesse sentido, a TPU ainda gasta mais energia proporcionalmente, pois realiza muito mais tarefas que a GPU, porém seus gastos em valor absoluto ainda são inferiores, e justificam o uso desse hardware.
+
+% --- CHAPTER 10 --- % 
+\chapter{Considerações Finais}
 
 \bibliographystyle{alpha}
 \bibliography{sample}
