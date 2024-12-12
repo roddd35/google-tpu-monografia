@@ -51,15 +51,16 @@ Uma das principais funcionalidades das TPUs é o processamento eficiente de tens
 Atualmente, as TPUs são uma tecnologia proprietária da Google, com acesso restrito principalmente aos serviços da empresa. Usuários podem utilizá-las por meio da plataforma de computação em nuvem da Google ou através do Google Colab, onde é possível acessar versões limitadas ou alugar TPUs mais potentes conforme a necessidade.
 
 % --- CHAPTER 3 --- % 
-\section{Tensores}
-
-% --- CHAPTER 4 --- % 
 \section{Aprendizado de Máquina e Redes Neurais}
 
 Em uma era marcada pela presença de modelos como o ChatGPT, IA generativa, e questões éticas envolvendo o uso de imagens e dados pessoais por grandes empresas, surge a necessidade de compreender o funcionamento dos modelos de aprendizado de máquina. Essa compreensão é fundamental não apenas para o fortalecimento científico, mas também para uma aplicação ética e responsável dessas tecnologias.
+
 O surgimento das TPUs está diretamente associado ao avanço científico e comercial dessas tecnologias, que dependem cada vez mais de grandes volumes de dados para seu treinamento e operação. Esses modelos, ao lidarem com dados em larga escala, exigem imenso poder computacional para processá-los e realizar cálculos matemáticos intensivos, como produtos tensoriais, fundamentais para redes neurais profundas.
+
 De forma resumida, os modelos de aprendizado de máquina consistem na modelagem matemática de problemas com propósitos variados, mas que compartilham um objetivo em comum: permitir que o modelo se ajuste suficientemente bem para fornecer respostas adequadas às entradas recebidas. Em essência, há semelhanças com a computação clássica, onde uma entrada é processada para gerar uma saída correspondente. No entanto, os modelos de aprendizado de máquina possuem uma natureza probabilística, o que significa que não há garantia de que as respostas serão sempre corretas. Ainda assim, são extremamente úteis para resolver problemas difíceis de automatizar.
+
 Por exemplo, para um ser humano, identificar a imagem de um gato é uma tarefa trivial. Contudo, como automatizar tal tarefa? Escrever um algoritmo clássico que reconheça um gato em imagens de diferentes tamanhos, formatos e padrões de cores seria inviável devido à complexidade e variabilidade envolvidas. Nesse cenário, o uso do aprendizado de máquina surge como uma solução poderosa.
+
 Os modelos mais modernos de aprendizado de máquina, em especial aqueles baseados em redes neurais, são construídos a partir de duas etapas principais: o forward propagation e o back-propagation. Redes neurais consistem em nós que representam as features dos dados e pesos atribuídos a cada uma dessas features. O forward propagation envolve realizar produtos vetoriais entre os pesos e os valores dos nós, seguidos por uma função não linear aplicada à soma ponderada das entradas. Já o back-propagation atualiza os pesos com base no erro calculado, utilizando novamente produtos vetoriais para ajustar o modelo.
 Essas operações são computacionalmente intensivas, especialmente em redes neurais que podem conter milhares ou até milhões de parâmetros, dependendo de sua complexidade. Para viabilizar tais cálculos, é indispensável utilizar estratégias que combinem paralelismo e algoritmos eficientes, tarefa para a qual as TPUs foram especificamente projetadas. Conforme será abordado adiante, com sua arquitetura otimizada, as TPUs permitem acelerar o treinamento e a inferência de modelos, tornando-os mais acessíveis e práticos no mundo real.
 
@@ -74,7 +75,7 @@ Com base nisso, temos um modelo matemático, que atualiza pesos e é capaz de re
 Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como na academia, e deve continuar sendo explorado por diversos profissionais, de forma que é necessário acelerar o longo processo de treinamento de modelos, além de buscar soluções mais sustentáveis para que o conhecimento possa continuar se expandindo.
 
 
-% --- CHAPTER 5 --- % 
+% --- CHAPTER 4 --- % 
 \chapter{Arquitetura da TPU}
 
 As TPUs surgem como uma alternativa de arquitetura simples para o usuário, oferecendo uma interface de hardware mais amigável e, ao mesmo tempo, capacidade de processar dados com maior rapidez. Essa eficiência foi essencial para atender às demandas de processamento de redes neurais em 2015. Projetada para operar de forma independente da CPU, a arquitetura da TPU recebe instruções diretamente do servidor ao qual está conectada.
@@ -125,7 +126,9 @@ Note que a TPU está sendo utilizada sempre de maneira conjunta com a CPU, para 
 	\caption{Placa de circuito da TPU}
 \end{figure}
 
-% --- CHAPTER 6 --- % 
+Atualmente, é possível que usuários possam utilizar gratuitamente a biblioteca TensorFlow, da Google, e rodar seus modelos de aprendizado de máquina utilizando-se da TPU pública presente no Colab, com limite de usos por dia. Para ter acesso a mais seções de uso da TPU ou utilizar arquiteturas mais modernas e poderosas, é necessário assinar um plano da big tech.
+
+% --- CHAPTER 5 --- % 
 \chapter{TPU vs GPU}
 
 As GPUs (Graphics Processing Unit ou Unidade de Processamento Gráfico) são processadores projetados para acelerarem o processamento e a renderização de gráficos e imagens em um computador. Inicialmente, elas foram desenvolvidas para melhorar o desempenho gráfico e aplicações de visualização, mas com o tempo, elas se tornaram ferramentas poderosas também para tarefas de computação paralela. Devido a esta grande vantagem, computar paralelamente, elas tornaram-se vitais nas tarefas de aprendizado de máquina e simulações científicas.
@@ -159,10 +162,7 @@ Ambas também podem ser obtidas por serviços de nuvem e a diferença no preço 
 
 Esta diferença desproporcional está atrelada à grande eficiência das TPUs para tarefas de machine learning em grande escala. Apesar das TPUs terem o custo por hora mais caro, tais tarefas demandam muitas horas de cálculos computacionais. Como existe uma vantagem maior no desempenho das TPUs em relação as GPUs nessas tarefas, o saldo final apresenta-se positivo para a utilização das mesmas.
 
-% --- CHAPTER 7 --- % 
-\chapter{TensorFlow}
-
-% --- CHAPTER 8 --- % 
+% --- CHAPTER 6 --- % 
 \chapter{Cloud TPU v5p}
 
 Como discutido anteriormente, os modelos de linguagem de grande escala (LLMs) são atualmente os mais explorados tanto no mercado quanto na academia. Esses modelos dependem de grandes volumes de dados, frequentemente oriundos de toda (ou quase toda) a internet, cuja quantidade cresce exponencialmente. Milhões de novos dados são gerados diariamente, o que torna essencial que o hardware acompanhe esse crescimento, oferecendo poder computacional suficiente para treinar modelos dessa magnitude.
@@ -179,7 +179,7 @@ A TPU v5p destaca-se por priorizar desempenho máximo, mesmo que isso sacrifique
 
 Mas no fim, o que significam esses valores? A Google promete que a nova TPU consegue escalar o tempo de treinamento, sendo até $4X$ mais rápida que TPUs mais baratas, como a $V4$, devido ao dobramento no tamanho de operações em ponto flutuante que são entregues.
 
-% --- CHAPTER 9 --- % 
+% --- CHAPTER 7 --- % 
 \chapter{Consumo de Energia}
 
 Atualmente, TPUs são encontradas com maior frequência em data centers, e são um produto extremamente utilizado não só pela Google, como também por empresas e usuários que dependem de seus serviços de nuvem.
@@ -205,8 +205,14 @@ A fim de medir tal consumo e avaliar a validade energética do uso de TPUs em de
 
 Pelos resultados obtidos, vemos que as TPUs conseguem consumir, no geral, menos energia que as GPUs, porém há um trade-off considerável, pois a quantidade de energia consumida, mesmo com pouca operação na máquina, ainda é muito similar ao consumo com a máquina funcionando em $100\%$. Ou seja, quando a TPU e GPU estão totalmente carregadas, o servidor de CPU gasta $52\%$ da energia da GPU e $69\%$ da energia da TPU. Nesse sentido, a TPU ainda gasta mais energia proporcionalmente, pois realiza muito mais tarefas que a GPU, porém seus gastos em valor absoluto ainda são inferiores, e justificam o uso desse hardware.
 
-% --- CHAPTER 10 --- % 
+% --- CHAPTER 8 --- % 
 \chapter{Considerações Finais}
+
+Considerando os fatores discutidos na monografia, percebemos que com o avanço de técnicas e algoritmos de alto custo computacional, é necessário que o desenvolvimento de ferramentas de hardware com forte poder computacional continue seguindo a mesma linha evolutiva, a fim de tornar possível o escalonamento no tamanho de processos e tarefas que novos algoritmos precisam. Esse caso fica muito claro com o desenvolvimento acelerado de tarefas envolvendo o treinamento de modelos de Deep Learning, que realizam diversas operações matriciais e convolucionais e necessitam de unidades de processamento capazes de realizar essas operações de maneira mais rápida.
+
+Nesse sentido, a Google Tensor Processing Unit (TPU) é uma das maiores inovações no ramo de arquitetura de computadores nos últimos anos, e vem sendo amplamente utilizada não só por sua empresa criadora, como também por diversos outros clientes em todo o mundo. Essa aplicação de circuito integrado, como vimos, foca não apenas em acelerar o desenvolvimento e treinamento de modelos de aprendizado de máquina, como também tem objetivo no ramo sustentável, ao reduzir o consumo energético gasto por outras unidades de processamento comuns no ramo, como as GPUs.
+
+Assim, concluímos que, além do ganho de poder computacional, as TPUs são uma ótima alternativa de como as futuras tecnologias de processamento de dados em larga escala devem ser projetadas, a fim de acelerar o desenvolvimento de software de alto custo, além de caminhar, mesmo que a passos lentos, na direção de sistemas mais sustentáveis.
 
 \bibliographystyle{alpha}
 \bibliography{sample}
