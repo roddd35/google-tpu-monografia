@@ -74,6 +74,15 @@ Com base nisso, temos um modelo matemático, que atualiza pesos e é capaz de re
 
 Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como na academia, e deve continuar sendo explorado por diversos profissionais, de forma que é necessário acelerar o longo processo de treinamento de modelos, além de buscar soluções mais sustentáveis para que o conhecimento possa continuar se expandindo.
 
+\section{LLMs}
+
+Uma das técnicas mais discutidas atualmente no ramo de Deep Learning é o Processamento de Linguagem Natural (NLP), que ficou ainda mais conhecido quando se tornaram públicos os grandes modelos de linguagem (LLMs). Esses modelos são conhecidos por serem treinados com uma grande quantidade de dados, provindos muitas vezes de toda a internet, como é o caso dos modelos GPT.
+
+Modelos de linguagem no geral são treinados baseados em transfer-learning, ou seja, a utilização de um modelo pré-treinado, onde se ajusta os dados para o modelo desejado, e podem ser utilizados para diversas tarefas, como a criação de chat-bots, agentes inteligentes que interagem com o usuário, automação de tarefas, etc. A ideia geral de LLMs consiste em dar grande poder de generalização para modelos de linguagem, a fim de que o modelo possa realizar "tomadas de decisão" de maneira mais próxima do esperado pelo usuário.
+
+Nesse contexto, sabemos que para um modelo ser capaz de tomar decisões que se possa atender às necessidades de todos os usuários, de modo geral, é necessário, além de ajustes grandes para possíveis respostas (baseados no Attention, que dá maior pesos para tokens mais importantes na saída) um grande número de dados de treinamento, que dizem respeito a grande parte das possíveis entradas de um usuário. Assim, a varredura da internet se torna uma ideia frequente para treinar LLMs, visto que se encontra, atualmente, conteúdos relacionados a maior parte dos assuntos que alguém pode querer fornecer de entrada para um modelo de linguagem.
+
+Tendo isso em vista, como o número de dados para se treinar um modelo de linguagem com forte poder de generalização baseado nas mais diversas entradas possíveis, e atender grande parte das possíveis perguntas de usuários, é necessário um poder computacional enorme para processar os dados e realizar operações lineares, como produto matricial. Assim, TPUs podem ser uma forte alternativa para treinar esses modelos e acelerar esse processo, ao mesmo tempo que economizam energia em relação a arquiteturas mais arcaicas.
 
 % --- CHAPTER 4 --- % 
 \chapter{Arquitetura da TPU}
@@ -217,16 +226,20 @@ Assim, concluímos que, além do ganho de poder computacional, as TPUs são uma 
 \bibliographystyle{alpha}
 \bibliography{sample}
 
-\href{https://www.run.ai/guides/cloud-deep-learning/google-tpu}{TPU e Arquitetura}
+JOUPPI, Norman P.; YOUNG, Cliff; PATIL, Nishant; PATTERSON, David; e outros. In-Datacenter Performance Analysis of a Tensor Processing Unit. Proceedings of the 44th International Symposium on Computer Architecture (ISCA), Toronto, Canadá, jun. 2017. Disponível em: \href{https://arxiv.org/pdf/1704.04760}{https://arxiv.org/pdf/1704.04760}. Acesso em: 10 dez. 2024.
 
-\href{https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference}{Comparativos oficiais em modelos de IA (TPU vs GPU)}
+TPU vs GPU for AI: What's the Difference? Disponível em: \href{https://www.datacamp.com/pt/blog/tpu-vs-gpu-ai}{https://www.datacamp.com/pt/blog/tpu-vs-gpu-ai}. Acesso em: 04 dez. 2024.
 
-\href{https://canaltech.com.br/inteligencia-artificial/cloud-tpu-v5p-e-o-novo-e-mais-poderoso-acelerador-de-ia-do-google-272299/}{TPU v5p}
+NAVEED, Humza; KHAN, Asad Ullah; QIU, Shi; SAQIB, Muhammad; ANWAR, Saeed; USMAN, Muhammad; AKHTAR, Naveed; BARNES, Nick; MIAN, Ajmal. A Comprehensive Overview of Large Language Models. Preprint submitted to Elsevier, 17 out. 2024. Disponível em: \href{https://arxiv.org/pdf/2307.06435}{https://arxiv.org/pdf/2307.06435}. Acesso em: 12 dez. 2024.
 
-\href{https://cloud.google.com/tpu?hl=pt-BR}{Conceitos básicos}
+RUN.AI. Google TPU: Everything You Need to Know. Disponível em: \href{https://www.run.ai/guides/cloud-deep-learning/google-tpu}{https://www.run.ai/guides/cloud-deep-learning/google-tpu}. Acesso em: 04 dez. 2024.
 
-\href{https://en.wikipedia.org/wiki/Tensor_Processing_Unit}{Wikipedia, tem tudo}
+VAHDAT, Amin; LOHMEYER, Mark. Performance per Dollar of GPUs and TPUs for AI Inference. 11 set. 2023. Disponível em: \href{https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference}{https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference}. Acesso em: 04 dez. 2024.
 
-\href{https://arxiv.org/pdf/1704.04760}{Paper original da TPU}
+TREFILIO, Daniel. Cloud TPU v5p é o novo e mais poderoso acelerador de IA do Google. Editado por Jones Oliveira. 06 dez. 2023. Disponível em: \href{https://canaltech.com.br/inteligencia-artificial/cloud-tpu-v5p-e-o-novo-e-mais-poderoso-acelerador-de-ia-do-google-272299/}{https://canaltech.com.br/inteligencia-artificial/cloud-tpu-v5p-e-o-novo-e-mais-poderoso-acelerador-de-ia-do-google-272299/}. Acesso em: 04 dez. 2024.
+
+Guia de TPU. Disponível em: \href{https://www.tensorflow.org/guide/tpu?hl=pt-br}{https://www.tensorflow.org/guide/tpu?hl=pt-br}. Acesso em: 12 dez. 2024.
+
+Tensor Processing Unit. Disponível em: \href{https://en.wikipedia.org/wiki/Tensor_Processing_Unit}{https://en.wikipedia.org/wiki/Tensor\_Processing\_Unit}. Acesso em: 10 dez. 2024.
 
 \end{document}
