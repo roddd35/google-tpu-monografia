@@ -31,22 +31,24 @@ Na era do desenvolvimento de sistemas baseados em Inteligência Artificial e red
 % --- CHAPTER 1 --- % 
 \chapter{Introdução}
 
-A evolução da tecnologia tem proporcionado diversos avanços no campo da inteligência artificial, principalmente no desenvolvimento de redes neurais profundas (Deep Learning) e aprendizado de máquina. Nesse cenário, a demanda por maior poder computacional levou à criação de hardware especializado, capaz de lidar com a complexidade e o volume de cálculos necessários para essas tarefas. Nesse contexto, destaca-se a Unidade de Processamento Tensorial (TPU), um circuito integrado de aplicação específica (ASIC) desenvolvido pelo Google.
+A evolução tecnológica tem impulsionado avanços significativos no campo da inteligência artificial, especialmente no desenvolvimento de redes neurais profundas (Deep Learning) e aprendizado de máquina (Machine Learning). Com a crescente complexidade dos modelos e o aumento exponencial na quantidade de dados processados, surgiu a necessidade de hardware especializado, capaz de atender à demanda por poder computacional de maneira eficiente. Nesse contexto, destaca-se a Unidade de Processamento Tensorial (TPU), um circuito integrado de aplicação específica (ASIC) desenvolvido pelo Google para atender às demandas específicas do aprendizado de máquina e inteligência artificial.
 
-As TPUs, lançadas em 2015, foram projetadas para acelerar operações de aprendizado de máquina, otimizando o treinamento de modelos baseados em redes neurais. Diferentemente de CPUs e GPUs, cuja arquitetura é projetada para fins generalistas, as TPUs são especializadas em multiplicações e somas de matrizes, que são operações fundamentais em áreas como Deep Learning. Essa especialização confere às TPUs maior eficiência energética e desempenho significativamente superior em tarefas relacionadas à inteligência artificial.
+Lançadas em 2015, as TPUs foram projetadas para acelerar operações matemáticas essenciais em aprendizado de máquina, como as multiplicações e somas de matrizes, que são fundamentais para o funcionamento de redes neurais. Diferentemente das CPUs e GPUs, cuja arquitetura é generalista e voltada para uma ampla variedade de aplicações, as TPUs possuem uma arquitetura altamente otimizada para tarefas específicas de aprendizado profundo, oferecendo maior eficiência energética e desempenho superior em comparação com soluções tradicionais.
 
-Dessa forma, considerando o tema apresentado como essencial para os avanços significativos que foram alcançados nas áreas de IA e Aprendizado de Máquina, este trabalho se propõe a explorar a arquitetura, os princípios de funcionamento e as aplicações das TPUs no contexto da computação moderna. 
+Além de desempenharem um papel crucial no treinamento e na inferência de modelos de aprendizado de máquina, as TPUs também têm permitido avanços significativos em áreas como processamento de linguagem natural, visão computacional e sistemas de recomendação. Sua adoção em larga escala em data centers e projetos de pesquisa reflete a importância desse hardware na computação moderna.
+
+Diante desse cenário, este trabalho tem como objetivo explorar a arquitetura, os princípios de funcionamento e as aplicações das TPUs, destacando sua relevância para os avanços tecnológicos no campo da inteligência artificial e seu impacto na evolução da computação contemporânea.
 
 % --- CHAPTER 2 --- % 
 \chapter{História}
 
-A Google Tensor Processing Unit é uma arquitetura de circuito integrado conhecido como um "acelerador de IA". Essa arquitetura tem seu início em $2016$, como uma alternativa a outras estruturas já conhecidas, utilizadas popularmente para acelerar o treinamento de modelos de IA, como as GPUs e os arrays sistólicos.
+A Google Tensor Processing Unit (TPU) é uma arquitetura de circuito integrado especializada, conhecida como um "acelerador de IA". Essa tecnologia teve sua primeira aplicação em 2015, sendo apresentada ao público em 2016 como uma alternativa inovadora às arquiteturas amplamente utilizadas para acelerar o treinamento de modelos de inteligência artificial, como GPUs e arrays sistólicos.
 
-Apesar dessa tecnologia ser divulgada ao público apenas em $2016$, engenheiros da Google divulgaram que já era utilizada há mais de um ano em datacenters da big tech. Essa arquitetura foi pensada para funcionar juntamente a biblioteca de Machine Learning da Google, o TensorFlow, utilizada para treinar grandes modelos baseados em redes neurais, e atualmente uma das maiores bibliotecas do ramo. 
+Embora tenha sido oficialmente divulgada apenas em 2016, engenheiros da Google revelaram que a TPU já era utilizada internamente em data centers da empresa por mais de um ano antes de seu lançamento público. Desenvolvida com foco em desempenho otimizado, a arquitetura foi projetada para integrar-se perfeitamente à biblioteca de aprendizado de máquina TensorFlow, também criada pela Google. O TensorFlow é amplamente utilizado para o treinamento de modelos baseados em redes neurais e, atualmente, figura entre as bibliotecas mais populares e robustas do setor.
 
-Entre as principais atividades executadas pela TPU está o processamento de tensores, estrutura de dados conhecida como um array multidimensional. Dessa forma, estratégias diversas para multiplicação de tensores (linear e paralelamente) são comumente estudadas em diversos campos da matemática clássica, dentro da Álgebra Linear, e as mais modernas arquiteturas para processamentos de produtos matriciais se baseiam em técnicas já conhecidas.
+Uma das principais funcionalidades das TPUs é o processamento eficiente de tensores, uma estrutura de dados representada como um array multidimensional. Estratégias para multiplicação de tensores, tanto de forma linear quanto paralela, são amplamente estudadas em campos como álgebra linear e computação paralela. As TPUs utilizam conceitos avançados dessas áreas para implementar arquiteturas de processamento de produtos matriciais altamente otimizadas, resultando em um desempenho superior em tarefas específicas de aprendizado profundo.
 
-Atualmente, as TPUs são proprietárias, e no geral o acesso se limita a própria Google ou usuários que pagam por seu uso. É possível que empresas contratem o serviço por meio do sistema de nuvem da Google ou utilizem através do Google Colab, com tempo limitado de uso ou aluguel de TPUs mais potentes.
+Atualmente, as TPUs são uma tecnologia proprietária da Google, com acesso restrito principalmente aos serviços da empresa. Usuários podem utilizá-las por meio da plataforma de computação em nuvem da Google ou através do Google Colab, onde é possível acessar versões limitadas ou alugar TPUs mais potentes conforme a necessidade.
 
 % --- CHAPTER 3 --- % 
 \section{Tensores}
@@ -54,15 +56,12 @@ Atualmente, as TPUs são proprietárias, e no geral o acesso se limita a própri
 % --- CHAPTER 4 --- % 
 \section{Aprendizado de Máquina e Redes Neurais}
 
-Nos tempos de ChatGPT, IA's generativas, problemas éticos com uso de imagens e dados pessoais por grandes empresas, surge a necessidade de se entender como funcionam os modelos de Aprendizado de Máquina. 
-
-Nesse sentido, o surgimento das TPUs estão associadas justamente oa fortalecimento científico e comercial desse tipo de tecnologia, que a cada dia vem sendo explorada mais fortemente, e utilizando grandes camadas de dados. Esses modelos exigem muito poder computacional para processar todos os dados fornecidos, além de realizar diversas operações matemáticas como produtos tensoriais. 
-
-De maneira resumida, modelos de Aprendizado de Máquina no geral consiste na modelagem matemática de problemas, com propósitos variáveis, mas que todos possuem algo em comum: fazer com que o modelo se ajuste bem, a ponto de dar respostas boas para suas entradas. Dessa forma, se percebe uma boa semelhança com a computação clássica, dada uma entrada, processamos uma respectiva saída. Todavia, esses modelos são probabilísticos, e não há garantia que a resposta sempre será a esperada. Para que servem esses modelos, então?
-
-Há problemas que são fáceis para humanos responderem, mas difíceis de serem automatizados. Por exemplo, dada uma imagem de um gato, um ser humano pode facilmente ver a imagem e dizer "essa é uma imagem de um gato". Porém, se existisse a necessidade de automatizar tal tarefa? Como podemos escrever um algoritmo que, dada uma imagem, de qualquer tamanho e padrão de cores, apenas utilizando ferramentas clássicas de algoritmos (loops, condicionais) e dizer se aquela imagem contém de fato, um gato? Nesse contexto, utilizar Machine Learning é uma boa ideia.
-
-Adicionalmente, os modelos mais modernos de Aprendizado de Máquina estão atrelados ao desenvolvimento de redes neurais. Esses modelos são treinados baseados em dois passos, conhecidos como forward e back-propagation. Redes Neurais são constituídas por nós, representando features de dados, e pesos atribuídos a cada uma dessas features, e a operação de Forward-Propagation consiste em realizar produtos vetoriais entre esses pesos com o valor dos nós (função não linear da soma ponderada dos dados de entrada). A operação de Back-Propagation deve retornar a rede neural, atualizando os pesos com base no erro calculado, novamente utilizando operações de produtos vetoriais. Note que essas operações são extremamente custosas, e Redes Neurais possuem milhares, até milhões de parâmetros, a depender do modelo, e é necessário acelerar esse processamento, com base em paralelismo e busca de algoritmos mais eficientes.
+Em uma era marcada pela presença de modelos como o ChatGPT, IA generativa, e questões éticas envolvendo o uso de imagens e dados pessoais por grandes empresas, surge a necessidade de compreender o funcionamento dos modelos de aprendizado de máquina. Essa compreensão é fundamental não apenas para o fortalecimento científico, mas também para uma aplicação ética e responsável dessas tecnologias.
+O surgimento das TPUs está diretamente associado ao avanço científico e comercial dessas tecnologias, que dependem cada vez mais de grandes volumes de dados para seu treinamento e operação. Esses modelos, ao lidarem com dados em larga escala, exigem imenso poder computacional para processá-los e realizar cálculos matemáticos intensivos, como produtos tensoriais, fundamentais para redes neurais profundas.
+De forma resumida, os modelos de aprendizado de máquina consistem na modelagem matemática de problemas com propósitos variados, mas que compartilham um objetivo em comum: permitir que o modelo se ajuste suficientemente bem para fornecer respostas adequadas às entradas recebidas. Em essência, há semelhanças com a computação clássica, onde uma entrada é processada para gerar uma saída correspondente. No entanto, os modelos de aprendizado de máquina possuem uma natureza probabilística, o que significa que não há garantia de que as respostas serão sempre corretas. Ainda assim, são extremamente úteis para resolver problemas difíceis de automatizar.
+Por exemplo, para um ser humano, identificar a imagem de um gato é uma tarefa trivial. Contudo, como automatizar tal tarefa? Escrever um algoritmo clássico que reconheça um gato em imagens de diferentes tamanhos, formatos e padrões de cores seria inviável devido à complexidade e variabilidade envolvidas. Nesse cenário, o uso do aprendizado de máquina surge como uma solução poderosa.
+Os modelos mais modernos de aprendizado de máquina, em especial aqueles baseados em redes neurais, são construídos a partir de duas etapas principais: o forward propagation e o back-propagation. Redes neurais consistem em nós que representam as features dos dados e pesos atribuídos a cada uma dessas features. O forward propagation envolve realizar produtos vetoriais entre os pesos e os valores dos nós, seguidos por uma função não linear aplicada à soma ponderada das entradas. Já o back-propagation atualiza os pesos com base no erro calculado, utilizando novamente produtos vetoriais para ajustar o modelo.
+Essas operações são computacionalmente intensivas, especialmente em redes neurais que podem conter milhares ou até milhões de parâmetros, dependendo de sua complexidade. Para viabilizar tais cálculos, é indispensável utilizar estratégias que combinem paralelismo e algoritmos eficientes, tarefa para a qual as TPUs foram especificamente projetadas. Conforme será abordado adiante, com sua arquitetura otimizada, as TPUs permitem acelerar o treinamento e a inferência de modelos, tornando-os mais acessíveis e práticos no mundo real.
 
 \begin{figure}[h]
 	\includegraphics[scale=0.7]{neuralNetwork}
@@ -78,7 +77,7 @@ Dessa forma, Machine Learning é uma tendência que cresce tanto no mercado como
 % --- CHAPTER 5 --- % 
 \chapter{Arquitetura da TPU}
 
-As TPUs surgem como uma alternativa de arquitetura simples para o usuário, de forma que tenha uma interface de hardware mais amigável, ao mesmo tempo que consegue processar dados mais rapidamente, atingindo as demandas necessárias em $2015$ para processamento de redes neurais. Essa arquitetura foi desenhada para processar dados de maneira independente da CPU, e recebe instruções de processamento do servidor onde está conectado.
+As TPUs surgem como uma alternativa de arquitetura simples para o usuário, oferecendo uma interface de hardware mais amigável e, ao mesmo tempo, capacidade de processar dados com maior rapidez. Essa eficiência foi essencial para atender às demandas de processamento de redes neurais em 2015. Projetada para operar de forma independente da CPU, a arquitetura da TPU recebe instruções diretamente do servidor ao qual está conectada.
 
 \begin{figure}[h]
 	\includegraphics[scale=0.7]{tpu-block-diagram}
@@ -102,7 +101,7 @@ Note que, a unidade de processamento de matrizes irá receber muitos dados de en
 
 \section{Principais instruções}
 
-Como vimos, as instruções a serem executadas são enviadas de maneira externa para a TPU, através de PCIe (Peripheral Component Interconnect Express), o que pode ser relativamente lento e caminhar na direção oposta ao que é esperado. Nesse contexto, a fim de acelerar esse processo, a TPU utiliza da arquitetura CISC para definir instruções. A seguir, vemos algumas das principais instruções presentes na TPU:
+Como vimos, as instruções a serem executadas são enviadas de maneira externa para a TPU, através de PCIe (Peripheral Component Interconnect Express), o que pode ser relativamente lento e caminhar na direção oposta ao que é esperado. Nesse contexto, a fim de acelerar esse processo, a TPU faz uso da arquitetura CISC para definir instruções. A seguir, vemos algumas das principais instruções presentes na TPU:
 
 $\bullet$ Read\_Host\_Memory: lê dados da CPU para o Buffer Unificado da TPU
 
@@ -135,11 +134,11 @@ Note que a TPU está sendo utilizada sempre de maneira conjunta com a CPU, para 
 % --- CHAPTER 8 --- % 
 \chapter{Cloud TPU v5p}
 
-Como discutido anteriormente, LLMs são os novos modelos mais explorados no mercado e na academia. Todavia, esses modelos utilizam dados de toda (ou quase toda) a internet, que cresce ainda mais exponencialmente. Todos os dias há milhões de novos dados sendo gerados. Dessa forma, é importante que o hardware acompanhe o crescimento na quantidade de dados disponíveis, de forma que seja possível possuir poder computacional suficiente para treinar modelos como esses.
+Como discutido anteriormente, os modelos de linguagem de grande escala (LLMs) são atualmente os mais explorados tanto no mercado quanto na academia. Esses modelos dependem de grandes volumes de dados, frequentemente oriundos de toda (ou quase toda) a internet, cuja quantidade cresce exponencialmente. Milhões de novos dados são gerados diariamente, o que torna essencial que o hardware acompanhe esse crescimento, oferecendo poder computacional suficiente para treinar modelos dessa magnitude.
 
-Com isso em vista, a evolução das TPUs deve ser rápida, portanto, em 2023, a Google apresentou, em 2023, a v5p, a TPU mais poderosa da empresa. Com esse lançamento, a Google prometeu a entrega de uma performance até $2.8$ vezes mais rápida, utilizada para alimentar ecossistemas internos da multinacional, como o Youtube, Android e Gmail.
+Com esse cenário em mente, a evolução das TPUs tem ocorrido de forma acelerada. Em 2023, a Google apresentou a TPU v5p, considerada a mais poderosa já desenvolvida pela empresa. Segundo a multinacional, o novo modelo oferece uma performance até 2,8 vezes mais rápida em comparação às versões anteriores, sendo utilizado para sustentar ecossistemas internos como YouTube, Android e Gmail.
 
-Essa TPU se diferencia das demais, pois é focada em desempenho possível, sem levar em consideração a facilidade operacional. Um grande diferencial é a forma como a TPU lida com operações em ponto flutuante. Por dados oficiais da Google, essa arquitetura traz $8960$ chips e três vezes mais memória HBM.
+A TPU v5p destaca-se por priorizar desempenho máximo, mesmo que isso sacrifique a facilidade operacional. Um de seus diferenciais está na maneira como lida com operações em ponto flutuante. De acordo com dados oficiais da Google, essa arquitetura incorpora 8.960 chips e apresenta três vezes mais memória HBM, proporcionando um avanço significativo em capacidade de processamento.
 
 \begin{figure}[h]
 \includegraphics[scale=0.7]{comparativo-tpus}
