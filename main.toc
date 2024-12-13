@@ -10,5 +10,5 @@
 \contentsline {chapter}{\numberline {4}TPU vs GPU}{7}{chapter.4}%
 \contentsline {chapter}{\numberline {5}TensorFlow}{8}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Cloud TPU v5p}{9}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Consumo de Energia}{10}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Considerações Finais}{12}{chapter.8}%
+\contentsline {chapter}{\numberline {7}Consumo de Energia}{11}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Considerações Finais}{13}{chapter.8}%
